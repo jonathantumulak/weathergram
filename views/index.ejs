@@ -3,9 +3,28 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/vendor/semantic/dist/semantic.min.css">
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/semantic/dist/semantic.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="ui raised very padded text center aligned container segment">
+        <h1 class="ui header"><%= title %></h1>
+        <p>Welcome to <%= location %></p>
+        <p>The weather is <%= weather %></p>
+        <form action='/' method='POST'>
+            <div class="ui input">
+                <input type="text" name="searchword" placeholder="Search a place...">
+            </div>
+        </form>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui fluid container">
+        <div class="ui large images">
+            <% for(var i=0; i<images.length; i++) { %>
+                <img class="ui image" src='<%= images[i] %>'>
+            <% } %>
+        </div>
+    </div>
   </body>
 </html>
